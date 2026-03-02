@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body data-theme="light">
+    <div class="calculator">
+        <!-- Header with Title and Toggle -->
+        <div class="calculator-header">
+            <h2 class="calculator-title">Advanced Calculator</h2>
+            <div class="theme-toggle">
+                <span class="toggle-label" id="themeLabel">Light</span>
+                <label class="switch">
+                    <input type="checkbox" id="themeSwitch">
+                    <span class="slider">
+                        <span class="icon sun">☀️</span>
+                        <span class="icon moon">🌙</span>
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <div class="display-panel">
+            <div id="history"></div>
+            <input type="text" id="display" readonly value="0" inputmode="none">
+        </div>
+
+        <!-- Connection Status -->
+        <div class="connection-status" id="connectionStatus">
+            <span class="status-indicator" id="statusIndicator"></span>
+            <span id="statusText">Connected to Python</span>
+        </div>
+
+        <!-- Button Grid -->
+        <div class="key-grid" id="keypad">
+            <!-- Row 1 -->
+            <button class="btn btn-fn" data-value="sin">sin</button>
+            <button class="btn btn-fn" data-value="cos">cos</button>
+            <button class="btn btn-fn" data-value="tan">tan</button>
+            <button class="btn btn-fn" data-value="log">log</button>
+            <button class="btn btn-fn" data-value="ln">ln</button>
+
+            <!-- Row 2 -->
+            <button class="btn btn-fn" data-value="asin">sin⁻¹</button>
+            <button class="btn btn-fn" data-value="acos">cos⁻¹</button>
+            <button class="btn btn-fn" data-value="atan">tan⁻¹</button>
+            <button class="btn btn-fn" data-value="sqrt">√</button>
+            <button class="btn btn-fn" data-value="cbrt">∛</button>
+
+            <!-- Row 3 -->
+            <button class="btn btn-clear" data-value="C">C</button>
+            <button class="btn btn-clear" data-value="⌫">⌫</button>
+            <button class="btn btn-fn" data-value="^">xʸ</button>
+            <button class="btn btn-fn" data-value="(">(</button>
+            <button class="btn btn-fn" data-value=")">)</button>
+
+            <!-- Row 4 -->
+            <button class="btn" data-value="7">7</button>
+            <button class="btn" data-value="8">8</button>
+            <button class="btn" data-value="9">9</button>
+            <button class="btn btn-operator" data-value="/">÷</button>
+            <button class="btn btn-fn" data-value="%">%</button>
+
+            <!-- Row 5 -->
+            <button class="btn" data-value="4">4</button>
+            <button class="btn" data-value="5">5</button>
+            <button class="btn" data-value="6">6</button>
+            <button class="btn btn-operator" data-value="*">×</button>
+            <button class="btn btn-fn" data-value="!">n!</button>
+
+            <!-- Row 6 -->
+            <button class="btn" data-value="1">1</button>
+            <button class="btn" data-value="2">2</button>
+            <button class="btn" data-value="3">3</button>
+            <button class="btn btn-operator" data-value="-">−</button>
+            <button class="btn btn-fn" data-value="π">π</button>
+
+            <!-- Row 7 -->
+            <button class="btn zero" data-value="0">0</button>
+            <button class="btn" data-value=".">.</button>
+            <button class="btn btn-operator" data-value="+">+</button>
+            <button class="btn btn-equals" data-value="=">=</button>
+        </div>
+
+        <!-- History Panel -->
+        <div class="history-panel">
+            <div class="history-header">
+                <span>Recent Calculations</span>
+                <button class="clear-history-btn" id="clearHistory">Clear</button>
+            </div>
+            <div id="recentHistory" class="recent-history"></div>
+        </div>
+
+        <div class="legend">
+            ⚡ Python Powered · Dark/Light Mode <span class="py-badge">Python 3</span>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
